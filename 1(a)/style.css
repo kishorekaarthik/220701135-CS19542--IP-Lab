@@ -1,0 +1,29 @@
+body {
+    font-family: 'Lato', 'Sans-Serif';
+    background-color: white;
+    margin: 0px 400px 0px 400px
+}
+.skill_set {
+    margin-bottom: 10px;  
+  }
+#h1 {
+    width: 70%;
+  }
+#details{
+    font-size: 15px;
+    color: black;
+}
+#name{
+    font-size: 22px;
+    font-weight: bold;
+    color: black;
+  }
+a {
+    color: black;
+    text-decoration: none;
+    
+    &:hover {
+      text-decoration: none;
+      font-weight: bold;
+  }
+}
