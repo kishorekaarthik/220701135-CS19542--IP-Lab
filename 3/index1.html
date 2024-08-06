@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Course Registration Form</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h2>Course Registration Form</h2>
+        <form id="registrationForm" onsubmit="return validateForm()">
+            <div class="form-group">
+                <label for="student_name">Student Name:</label>
+                <input type="text" id="student_name" name="student_name">
+                <span id="nameError" class="error"></span>
+            </div>
+
+            <div class="form-group">
+                <label for="rollno">Roll Number:</label>
+                <input type="text" id="rollno" name="rollno">
+                <span id="rollnoError" class="error"></span>
+            </div>
+
+            <div class="form-group">
+                <label>Gender:</label>
+                <div class="gender-group">
+                    <input type="radio" id="male" name="gender" value="male"> 
+                    <label for="male" class="radio-label">Male</label>
+                    <input type="radio" id="female" name="gender" value="female"> 
+                    <label for="female" class="radio-label">Female</label>
+                </div>
+                <span id="genderError" class="error"></span>
+            </div>
+
+            <div class="form-group">
+                <label for="year">Year:</label>
+                <input type="text" id="year" name="year">
+                <span id="yearError" class="error"></span>
+            </div>
+
+            <div class="form-group">
+                <label for="department">Department:</label>
+                <input type="text" id="department" name="department">
+                <span id="departmentError" class="error"></span>
+            </div>
+
+            <div class="form-group">
+                <label for="section">Section:</label>
+                <input type="text" id="section" name="section">
+                <span id="sectionError" class="error"></span>
+            </div>
+
+            <div class="form-group">
+                <label for="mobile_no">Mobile Number:</label>
+                <input type="text" id="mobile_no" name="mobile_no">
+                <span id="mobileError" class="error"></span>
+            </div>
+
+            <div class="form-group">
+                <label for="email">E-Mail ID:</label>
+                <input type="text" id="email" name="email">
+                <span id="emailError" class="error"></span>
+            </div>
+
+            <div class="form-group">
+                <label for="address">Address:</label>
+                <input type="text" id="address" name="address">
+                <span id="addressError" class="error"></span>
+            </div>
+
+            <div class="form-group">
+                <label for="city">City:</label>
+                <input type="text" id="city" name="city">
+                <span id="cityError" class="error"></span>
+            </div>
+
+            <div class="form-group">
+                <label for="country">Country:</label>
+                <input type="text" id="country" name="country">
+                <span id="countryError" class="error"></span>
+            </div>
+
+            <div class="form-group">
+                <label for="pincode">Pincode:</label>
+                <input type="text" id="pincode" name="pincode">
+                <span id="pincodeError" class="error"></span>
+            </div>
+
+            <div class="form-group">
+                <input type="submit" value="Register">
+            </div>
+        </form>
+        <div id="successMessage">Account successfully created!</div>
+    </div>
+
+    <script>
+        function validateForm() {
+            document.querySelectorAll('.error').forEach(function(el) {
+                el.textContent = '';
+            });
+
+            let isValid = true;
+
+            const name = document.getElementById('student_name').value;
+            if (name === '') {
+                document.getElementById('nameError').textContent = 'Student name is required';
+                isValid = false;
+            }
+
+            const rollno = document.getElementById('rollno').value;
+            if (rollno === '') {
+                document.getElementById('rollnoError').textContent = 'Roll number is required';
+                isValid = false;
+            }
+
+            const gender = document.querySelector('input[name="gender"]:checked');
+            if (!gender) {
+                document.getElementById('genderError').textContent = 'Please select a gender';
+                isValid = false;
+            }
+
+            const year = document.getElementById('year').value;
+            if (year === '' || isNaN(year)) {
+                document.getElementById('yearError').textContent = 'Valid year is required';
+                isValid = false;
+            }
+
+            const department = document.getElementById('department').value;
+            if (department === '') {
+                document.getElementById('departmentError').textContent = 'Department is required';
+                isValid = false;
+            }
+
+            const section = document.getElementById('section').value;
+            if (section === '') {
+                document.getElementById('sectionError').textContent = 'Section is required';
+                isValid = false;
+            }
+
+            const mobile_no = document.getElementById('mobile_no').value;
+            const mobilePattern = /^[0-9]{10}$/;
+            if (mobile_no === '' || !mobilePattern.test(mobile_no)) {
+                document.getElementById('mobileError').textContent = 'Valid 10-digit mobile number is required';
+                isValid = false;
+            }
+
+            const email = document.getElementById('email').value;
+            const emailPattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/;
+            if (email === '' || !emailPattern.test(email)) {
+                document.getElementById('emailError').textContent = 'Valid email is required';
+                isValid = false;
+            }
+
+            const address = document.getElementById('address').value;
+            if (address === '') {
+                document.getElementById('addressError').textContent = 'Address is required';
+                isValid = false;
+            }
+
+            const city = document.getElementById('city').value;
+            if (city === '') {
+                document.getElementById('cityError').textContent = 'City is required';
+                isValid = false;
+            }
+
+            const country = document.getElementById('country').value;
+            if (country === '') {
+                document.getElementById('countryError').textContent = 'Country is required';
+                isValid = false;
+            }
+
+            const pincode = document.getElementById('pincode').value;
+            const pincodePattern = /^[0-9]{6}$/;
+            if (pincode === '' || !pincodePattern.test(pincode)) {
+                document.getElementById('pincodeError').textContent = 'Valid 6-digit pincode is required';
+                isValid = false;
+            }
+
+            if (isValid) {
+                document.getElementById('successMessage').style.display = 'block';
+            }
+
+            return false;
+        }
+    </script>
+</body>
+</html>
