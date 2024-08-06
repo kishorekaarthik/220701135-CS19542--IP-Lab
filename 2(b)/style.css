@@ -1,0 +1,30 @@
+.box{
+    height: 15%;
+    width: 1000px;
+    text-align: center;
+    background: linear-gradient(to left,black ,rgb(127, 7, 127) ,black );
+    color: white;
+    display: block;
+    margin: auto;
+}
+.nav{
+    background-color:rgba(128,128, 128, 50%);
+    width: 50px;
+    height: 300px;
+    
+}
+.container{
+    display: flex;
+    height:200%
+}
+.nav{
+    flex:1;
+    padding: 20px;
+}
+.nam{
+    flex:2;
+    padding: 20px;
+}
+h2{
+    color: rgb(188, 23, 188);
+}
