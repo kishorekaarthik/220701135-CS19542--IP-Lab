@@ -1,0 +1,55 @@
+body {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 100vh;
+    background-color: #f4f4f4;
+    font-family: Arial, sans-serif;
+}
+
+#gameArea {
+    position: relative;
+    width: 100%;
+    height: 80vh;
+    background-color: white;
+    border: 1px solid black;
+    overflow: hidden;
+}
+
+#startButton {
+    padding: 10px 20px;
+    margin: 20px;
+    font-size: 18px;
+}
+
+.bubble {
+    position: absolute;
+    width: 80px; /* Increased bubble size for better visibility */
+    height: 80px;
+    border-radius: 50%;
+    background-color: #333; /* Default color (will be randomized later) */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 32px;
+    color: white;
+    font-weight: bold;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Adds bubble effect */
+    border: 2px solid white;
+    transition: transform 0.3s ease;
+}
+
+.bubble:hover {
+    transform: scale(1.2); /* Grows when hovered over */
+}
+
+.score {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    font-size: 24px;
+    font-weight: bold;
+}
